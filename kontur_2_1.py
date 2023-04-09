@@ -3,7 +3,6 @@ m = []
 for i in range(y):
     m.append(int(input()))
 z = []
-print(m)
 while True:
     if len(m) == 1:
         print(-m[0])
