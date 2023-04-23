@@ -1,6 +1,6 @@
 spisok = [int(i) for i in input().split(' ')]
-n = spisok[0] # строк
-m = spisok[1] # столбцов
+n = spisok[0] 
+m = spisok[1] 
 tablica = []
 vse = []
 stroka = None
@@ -10,36 +10,30 @@ stolbec_help = 0
 s_stroka = 0
 s_stolbec = 0
 transp = []
-
 for j in range(n):
     tablica.append([int(i) for i in input()])
     for k in tablica[-1]:
         vse.append(k)
-max_vse = max(vse)  # максимальное значение из всех
-
+max_vse = max(vse)  
 for j in tablica:
     s_stroka += 1
-    vrem_max = j.count(max_vse)  # подсчет максимального значения в каждой строке
+    vrem_max = j.count(max_vse)  
     if vrem_max > stroka_help:
-        stroka_help = vrem_max  # цифра максимально встречающегося максимального числа
-        stroka = s_stroka  # строка с максимально встречающимся максимальным числом
-tablica.pop(stroka - 1)  # удаляем строку с максимально часто встречающимся максимальным числом. s - 1, т.к. нумерация идет с 1
+        stroka_help = vrem_max  
+        stroka = s_stroka  
+tablica.pop(stroka - 1) 
 #print(tablica)
-
 vse.clear()
 for j in tablica:
     for i in j:
         vse.append(i)
-
-max_vse = max(vse)  # новое максимальное значение
+max_vse = max(vse) 
 #print(vse)
-
-for i in range(m):  # список для инкр повторяющихся значений в столбцах (заместо транспонирования)
+for i in range(m):  
     transp.append(0)
-
 for j in tablica:
     for i in range(m):
         if j[i] == max_vse:
             transp[i] += 1
-stolbec = transp.index(max(transp)) + 1 # отсчет от 1
+stolbec = transp.index(max(transp)) + 1 
 print(stroka, stolbec)
