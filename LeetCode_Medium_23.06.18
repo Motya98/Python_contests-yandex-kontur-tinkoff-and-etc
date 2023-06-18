@@ -1,0 +1,13 @@
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        slovar = {}
+        otvet = []     
+        for i in nums:
+            try:
+                slovar[i] += 1
+            except:
+                slovar[i] = 1
+        slovar = sorted(slovar.items(), key=lambda x: x[1], reverse=True)
+        for i in range(k):
+            otvet.append(slovar[i][0])
+        return otvet
